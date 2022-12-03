@@ -30,7 +30,7 @@ struct CheckItemView: View {
 }
 
 // Previewの補助
-struct PreviewWrapper: View {
+private struct PreviewWrapper: View {
     @State var checkItem = CheckItem(isChecked: false, name: "りんご")
 
     var body: some View {

@@ -16,6 +16,7 @@
 		954FCCB529395A0100F9BD75 /* SwiftUI_CheckItem_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954FCCB429395A0100F9BD75 /* SwiftUI_CheckItem_AppUITestsLaunchTests.swift */; };
 		954FCCC229395A2500F9BD75 /* CheckItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954FCCC129395A2500F9BD75 /* CheckItem.swift */; };
 		954FCCC429395A8400F9BD75 /* CheckItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954FCCC329395A8400F9BD75 /* CheckItemView.swift */; };
+		95668AE8293ADA470087408B /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95668AE7293ADA470087408B /* CreateView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		954FCCB429395A0100F9BD75 /* SwiftUI_CheckItem_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_CheckItem_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		954FCCC129395A2500F9BD75 /* CheckItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckItem.swift; sourceTree = "<group>"; };
 		954FCCC329395A8400F9BD75 /* CheckItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckItemView.swift; sourceTree = "<group>"; };
+		95668AE7293ADA470087408B /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 			children = (
 				954FCC9729395A0000F9BD75 /* SwiftUI_CheckItem_AppApp.swift */,
 				954FCC9929395A0000F9BD75 /* ContentView.swift */,
+				95668AE7293ADA470087408B /* CreateView.swift */,
 				954FCCC129395A2500F9BD75 /* CheckItem.swift */,
 				954FCC9B29395A0100F9BD75 /* Assets.xcassets */,
 				954FCC9D29395A0100F9BD75 /* Preview Content */,
@@ -267,6 +270,7 @@
 				954FCCC229395A2500F9BD75 /* CheckItem.swift in Sources */,
 				954FCCC429395A8400F9BD75 /* CheckItemView.swift in Sources */,
 				954FCC9829395A0000F9BD75 /* SwiftUI_CheckItem_AppApp.swift in Sources */,
+				95668AE8293ADA470087408B /* CreateView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

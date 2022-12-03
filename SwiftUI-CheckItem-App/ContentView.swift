@@ -10,6 +10,9 @@ import SwiftUI
 struct ContentView: View {
     @State var checkItems = [ CheckItem(isChecked: false, name: "りんご"),CheckItem(isChecked: true, name: "バナナ")]
 
+    @State var isPresented = false
+    @State var newName = ""
+
     var body: some View {
         NavigationStack {
             VStack {
@@ -17,6 +20,17 @@ struct ContentView: View {
                    CheckItemView(checkItem: $checkItems[index])
                 }
             }.navigationTitle("チェックリスト")
+                .toolbar {
+                    ToolbarItem(placement: .automatic) {
+                        Button {
+                            isPresented = true
+                        } label: {
+                            Image(systemName: "plus")
+                        }
+                    }
+                }.fullScreenCover(isPresented: $isPresented) {
+                    CreateView(name: $newName, isPresented: $isPresented)
+                }// fullScreenCoverは画面遷移
         }
     }
 }
