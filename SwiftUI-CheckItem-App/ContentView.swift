@@ -8,29 +8,41 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var checkItems = [ CheckItem(isChecked: false, name: "りんご"),CheckItem(isChecked: true, name: "バナナ")]
+    @State var checkItems = [CheckItem(isChecked: false, name: "りんご"),CheckItem(isChecked: true, name: "バナナ")]
+
+    @State var checkList = CheckList(checkItems: [CheckItem(isChecked: false, name: "りんご"),CheckItem(isChecked: true, name: "バナナ")])
 
     @State var isPresented = false
-    @State var newName = ""
+    @State var createViewResult = CreateView.Result.cancel
 
     var body: some View {
-        NavigationStack {
-            VStack {
-                ForEach(checkItems.indices, id: \.self) { index in
-                   CheckItemView(checkItem: $checkItems[index])
-                }
-            }.navigationTitle("チェックリスト")
-                .toolbar {
-                    ToolbarItem(placement: .automatic) {
-                        Button {
-                            isPresented = true
-                        } label: {
-                            Image(systemName: "plus")
-                        }
+        VStack {
+            NavigationStack {
+                VStack {
+                    ForEach(checkList.checkItems.indices, id: \.self) { index in
+                        CheckItemView(checkItem: $checkList.checkItems[index])
                     }
-                }.fullScreenCover(isPresented: $isPresented) {
-                    CreateView(name: $newName, isPresented: $isPresented)
-                }// fullScreenCoverは画面遷移
+                    Spacer()
+                }.navigationTitle("チェックリスト")
+                    .toolbar {
+                        ToolbarItem(placement: .automatic) {
+                            Button {
+                                isPresented = true
+                            } label: {
+                                Image(systemName: "plus")
+                            }
+                        }
+                    }.fullScreenCover(isPresented: $isPresented,onDismiss: {
+                        switch createViewResult {
+                        case .save(let name):
+                            checkList.checkItems.append(CheckItem(isChecked: false, name: name))
+                        case .cancel:
+                            break
+                        }
+                    }) {
+                        CreateView(isPresented: $isPresented,result: $createViewResult)
+                    }// fullScreenCoverは画面遷移
+            }
         }
     }
 }

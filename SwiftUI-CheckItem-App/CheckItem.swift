@@ -11,3 +11,7 @@ struct CheckItem {
     var isChecked: Bool
     var name: String
 }
+
+struct CheckList {
+    var checkItems: [CheckItem]
+}

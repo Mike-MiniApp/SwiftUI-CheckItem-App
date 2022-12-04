@@ -8,8 +8,15 @@
 import SwiftUI
 
 struct CreateView: View {
-    @Binding var name: String
+    enum Result {
+        case save(String)
+        case cancel
+    }
+
+    @State var name = ""
     @Binding var isPresented: Bool
+    @Binding var result: Result
+
     var body: some View {
         NavigationStack {
             VStack {
@@ -25,11 +32,20 @@ struct CreateView: View {
             .navigationTitle("項目の追加")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .automatic) {
+                ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
+                        result = .save(name)
                         isPresented = false
                     } label: {
                         Text("追加")
+                    }.disabled(name.isEmpty) // nameが空の時は追加できないようにする
+                }
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        result = .cancel
+                        isPresented = false
+                    } label: {
+                        Text("キャンセル")
                     }
 
                 }
@@ -40,11 +56,11 @@ struct CreateView: View {
 
 private struct PreviewWrapper: View {
 
-    @State var name = ""
     @State var isPresented = false
+    @State var result = CreateView.Result.cancel
 
     var body: some View {
-        CreateView(name: $name, isPresented: $isPresented)
+        CreateView(isPresented: $isPresented, result: $result)
     }
 }
 
