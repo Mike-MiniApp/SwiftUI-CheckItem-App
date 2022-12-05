@@ -1,13 +1,13 @@
 //
-//  CreateView.swift
+//  CreateListView.swift
 //  SwiftUI-CheckItem-App
 //
-//  Created by 近藤米功 on 2022/12/03.
+//  Created by 近藤米功 on 2022/12/05.
 //
 
 import SwiftUI
 
-struct CreateView: View {
+struct CreateListView: View {
     enum Result {
         case save(String)
         case cancel
@@ -23,13 +23,13 @@ struct CreateView: View {
                 HStack {
                     Text("名前")
                     Spacer(minLength: 32)
-                    TextField("タスク名を入力してください", text: $name)
+                    TextField("カテゴリを入力してください", text: $name)
                         .textFieldStyle(.roundedBorder)
                 }
                 Spacer()
             }
             .padding()
-            .navigationTitle("項目の追加")
+            .navigationTitle("リストの追加")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -57,15 +57,16 @@ struct CreateView: View {
 private struct PreviewWrapper: View {
 
     @State var isPresented = false
-    @State var result = CreateView.Result.cancel
+    @State var result = CreateListView.Result.cancel
 
     var body: some View {
-        CreateView(isPresented: $isPresented, result: $result)
+        CreateListView(isPresented: $isPresented, result: $result)
     }
 }
 
-struct CreateView_Previews: PreviewProvider {
+struct CreateListView_Previews: PreviewProvider {
     static var previews: some View {
         PreviewWrapper()
     }
 }
+

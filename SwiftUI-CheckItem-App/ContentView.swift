@@ -8,41 +8,42 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var checkItems = [CheckItem(isChecked: false, name: "りんご"),CheckItem(isChecked: true, name: "バナナ")]
-
-    @State var checkList = CheckList(checkItems: [CheckItem(isChecked: false, name: "りんご"),CheckItem(isChecked: true, name: "バナナ")])
+    @State var checkLists = [CheckList(name: "買い物リスト",checkItems: [CheckItem(isChecked: false, name: "りんご"),CheckItem(isChecked: true, name: "バナナ")])]
 
     @State var isPresented = false
-    @State var createViewResult = CreateView.Result.cancel
+    @State var createViewResult = CreateListView.Result.cancel
 
     var body: some View {
-        VStack {
-            NavigationStack {
-                VStack {
-                    ForEach(checkList.checkItems.indices, id: \.self) { index in
-                        CheckItemView(checkItem: $checkList.checkItems[index])
+        NavigationStack {
+            List {
+                ForEach(checkLists, id: \.self) { checkList in
+                    NavigationLink(value: checkList.uuid) {
+                        Text(checkList.name)
                     }
-                    Spacer()
-                }.navigationTitle("チェックリスト")
-                    .toolbar {
-                        ToolbarItem(placement: .automatic) {
-                            Button {
-                                isPresented = true
-                            } label: {
-                                Image(systemName: "plus")
-                            }
+                }
+            }.navigationTitle("チェックリスト一覧")
+                .navigationDestination(for: UUID.self, destination: { uuid in
+                    let index = checkLists.firstIndex(where: { $0.uuid == uuid})!
+                    CheckListView(checkList: $checkLists[index])
+                })
+                .toolbar {
+                    ToolbarItem(placement: .automatic) {
+                        Button {
+                            isPresented = true
+                        } label: {
+                            Image(systemName: "plus")
                         }
-                    }.fullScreenCover(isPresented: $isPresented,onDismiss: {
-                        switch createViewResult {
-                        case .save(let name):
-                            checkList.checkItems.append(CheckItem(isChecked: false, name: name))
-                        case .cancel:
-                            break
-                        }
-                    }) {
-                        CreateView(isPresented: $isPresented,result: $createViewResult)
-                    }// fullScreenCoverは画面遷移
-            }
+                    }
+                }.fullScreenCover(isPresented: $isPresented,onDismiss: {
+                    switch createViewResult {
+                    case .save(let name):
+                        checkLists.append(CheckList(name: name, checkItems: []))
+                    case .cancel:
+                        break
+                    }
+                }) {
+                    CreateListView(isPresented: $isPresented,result: $createViewResult)
+                }
         }
     }
 }

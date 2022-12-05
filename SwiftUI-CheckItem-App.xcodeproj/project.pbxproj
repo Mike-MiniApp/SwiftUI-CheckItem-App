@@ -17,6 +17,8 @@
 		954FCCC229395A2500F9BD75 /* CheckItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954FCCC129395A2500F9BD75 /* CheckItem.swift */; };
 		954FCCC429395A8400F9BD75 /* CheckItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954FCCC329395A8400F9BD75 /* CheckItemView.swift */; };
 		95668AE8293ADA470087408B /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95668AE7293ADA470087408B /* CreateView.swift */; };
+		95F923D1293DAF65007C152D /* CheckListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F923D0293DAF65007C152D /* CheckListView.swift */; };
+		95F923D3293DB815007C152D /* CreateListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F923D2293DB815007C152D /* CreateListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		954FCCC129395A2500F9BD75 /* CheckItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckItem.swift; sourceTree = "<group>"; };
 		954FCCC329395A8400F9BD75 /* CheckItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckItemView.swift; sourceTree = "<group>"; };
 		95668AE7293ADA470087408B /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
+		95F923D0293DAF65007C152D /* CheckListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListView.swift; sourceTree = "<group>"; };
+		95F923D2293DB815007C152D /* CreateListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,8 @@
 				954FCC9B29395A0100F9BD75 /* Assets.xcassets */,
 				954FCC9D29395A0100F9BD75 /* Preview Content */,
 				954FCCC329395A8400F9BD75 /* CheckItemView.swift */,
+				95F923D0293DAF65007C152D /* CheckListView.swift */,
+				95F923D2293DB815007C152D /* CreateListView.swift */,
 			);
 			path = "SwiftUI-CheckItem-App";
 			sourceTree = "<group>";
@@ -271,6 +277,8 @@
 				954FCCC429395A8400F9BD75 /* CheckItemView.swift in Sources */,
 				954FCC9829395A0000F9BD75 /* SwiftUI_CheckItem_AppApp.swift in Sources */,
 				95668AE8293ADA470087408B /* CreateView.swift in Sources */,
+				95F923D1293DAF65007C152D /* CheckListView.swift in Sources */,
+				95F923D3293DB815007C152D /* CreateListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

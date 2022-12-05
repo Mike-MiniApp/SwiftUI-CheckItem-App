@@ -7,11 +7,15 @@
 
 import Foundation
 
-struct CheckItem {
+struct CheckItem: Hashable {
     var isChecked: Bool
     var name: String
 }
 
-struct CheckList {
+struct CheckList: Hashable, Identifiable {
+    let uuid: UUID = UUID()
+    var name: String
     var checkItems: [CheckItem]
+
+    var id: UUID { uuid }
 }
